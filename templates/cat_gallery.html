@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel=stylesheet href="{{ url_for('static', filename='cat_gallery.css') }}">
+  </head>
+  <body>
+    <header class="header">
+      <h1>css flexbox photo gallery</h1>
+    </header>
+    <div class="gallery">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg" alt="cat staring at a leaf">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/2.jpg" alt="cat stretching its paws and body">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/3.jpg" alt="cat sitting on cat house and looking in the camera">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/4.jpg" alt="touching a cat's nose with fingers">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/5.jpg" alt="cat tucked in sheets in a basket">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/6.jpg" alt="cat sitting beside a stone wall">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/7.jpg" alt="white cat lying on a carpet">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/8.jpg" alt="cat looking at the camera from an open window">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/9.jpg" alt="snubby cat looking into the camera with its head lofted on the sofa">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/10.jpg" alt="cat lying lazily lying on a bed">
+    </div>
+
+    <div class="back-link">
+      <a href="{{ url_for('home') }}">&larr; Back to My Portfolio</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Capstone Project</title>
+        <link rel="icon" href="{{ url_for('static', filename='images/H4weblogo.png') }}" type="image/png" />
+        <link rel=stylesheet href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <nav>
+            <div class='left-section'>
+                <a href="https://tensura.fandom.com/wiki/Home" target="_blank" class="logo-link">
+                    <img src="{{ url_for('static', filename='images/H4weblogo.png') }}" alt="H4 Web Logo" width="50" height ="30" class="logo">
+                </a>
+            </div>
+
+            <div class='right-section'>
+                <a href="#welcome-section" class="about-btn">About</a>
+                <a href="#projects" class="projects-btn">Work</a>
+                <a href="#contact-section" class="contact-btn">Contact</a>
+            </div>
+        </nav>
+
+        <main>
+            <section id="welcome-section">
+                <h1>Hey I am Muhammad Uzair</h1>
+                <p><em>I'm learning Web Development</em></p>
+            </section>
+
+            <section id="projects">
+                <h2>Some of my projects</h2>
+
+                <div class="projects-grid">
+                    <a href="{{ url_for('tribute') }}" class="project-tile"> 
+                        <p>project &lt; Tribute Page /&gt;</p> 
+                    </a>
+                    <a href="{{ url_for('balance_sheet') }}" class="project-tile"> 
+                        <p>project &lt; Balance Sheet /&gt;</p> 
+                    </a>
+                    <a href="{{ url_for('cat_gallery') }}" class="project-tile"> 
+                        <p>project &lt; Cat Gallery /&gt;</p> 
+                    </a>
+                    <a href="{{ url_for('cat_painting') }}" class="project-tile"> 
+                        <p>project &lt; Cat Painting /&gt;</p> 
+                    </a>
+                </div>
+
+                <a href="https://github.com" class="show-all-btn">Show all</a>
+            </section>
+
+            <section id="contact-section">
+                <h2>Let's work together...</h2> 
+                <p>How do you take your coffee?</p> 
+                <div class="contact-links"> 
+                    <a href="https://instagram.com">Instagram</a>
+                    <a href="https://github.com">GitHub</a>
+                    <a href="https://linkedin.com">LinkedIn</a>
+                    <a href="mailto:happymice45.dev@gmail.com">Send a mail</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>@2026 My Website</p>
+        </footer>
+    </body>
+</html>

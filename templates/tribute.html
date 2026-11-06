@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribute to Sir Syed Ahmad Khan</title>
+  <link rel=stylesheet href="{{ url_for('static', filename='tribute.css') }}">
+</head>
+<body>
+
+  <main id="main">
+    <h1 id="title">Sir Syed Ahmad Khan</h1>
+    <p class="subtitle">1817 - 1898 | Educator, Reformer, and Scholar</p>
+
+    <div id="img-div">
+        <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Syed_Ahmed_Khan.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Sir Syed Ahmed Khan historical portrait">
+        <figcaption id="img-caption">A historical public domain portrait of Sir Syed Ahmed Khan, the pioneer of modern Muslim education.</figcaption>
+        <p id="tribute-info">If you have time, you should read more about this incredible human being on his <a id="tribute-link" target="_blank" href="https://en.wikipedia.org/wiki/Syed_Ahmad_Khan">Wikipedia entry</a>.</p>
+      </div>
+
+    <section id="tribute-info">
+      <h2>Timeline and Legacy of Sir Syed Ahmad Khan</h2>
+      <ul>
+        <li><strong>1817:</strong> Born in Delhi, Mughal Empire.</li>
+        <li><strong>1838:</strong> Joined the service of the East India Company and became a respected judge.</li>
+        <li><strong>1859:</strong> Established modern schools in Muradabad and Ghazipur to promote modern education.</li>
+        <li><strong>1875:</strong> Founded the Muhammadan Anglo-Oriental (MAO) College in Aligarh to combine modern scientific education with Islamic values.</li>
+        <li><strong>1886:</strong> Established the All India Muhammadan Educational Conference to promote educational awareness across the subcontinent.</li>
+        <li><strong>1898:</strong> Passed away in Aligarh, leaving behind a lasting legacy of educational empowerment.</li>
+      </ul>
+
+      <blockquote class="quote">
+        "Acquisition of knowledge of science and technology is the only way for the progress of the nation."
+        <br><span>— Sir Syed Ahmad Khan</span>
+      </blockquote>
+    </section>
+
+    <h3>
+      Read more about his life and achievements on his 
+      <a id="tribute-link" href="https://en.wikipedia.org/wiki/Syed_Ahmad_Khan" target="_blank">Wikipedia Entry</a>.
+    </h3>
+
+    <div class="back-link">
+      <a href="{{ url_for('home') }}">&larr; Back to My Portfolio</a>
+    </div>
+  </main>
+
+</body>
+</html>
