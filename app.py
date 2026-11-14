@@ -76,6 +76,7 @@ def contact_page():
             flash('Thank you! Your query has been saved successfully.', 'success')
         except Exception as e:
             db.session.rollback()
+            print(f"DATABASE SAVE ERROR: {e}")
             flash('An error occurred while saving the query. Please try again.', 'error')
 
         return redirect(url_for('contact_page'))
