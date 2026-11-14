@@ -27,7 +27,10 @@ class Query(db.Model):
     date_submitted = db.Column(db.DateTime, default=datetime.utcnow)
 
 with app.app_context():
-    db.create_all()
+    try:
+        db.create_all()
+    except Exception as e:
+        print("Database connection error on startup:", e)
 
 
 @app.route('/') 
