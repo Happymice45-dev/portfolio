@@ -28,25 +28,47 @@
                 <p><em>I'm learning Web Development</em></p>
             </section>
 
-            <section id="projects">
-                <h2>Some of my projects</h2>
+            <section id="projects" class="projects-section">
+                <h2 class="projects-section-header" >Some of my projects</h2>
 
                 <div class="projects-grid">
-                    <a href="{{ url_for('tribute') }}" class="project-tile"> 
-                        <p>project &lt; Tribute Page /&gt;</p> 
+                    <a href="{{ url_for('tribute') }}" class="project project-tile"> 
+                        <div class="project-img-container">
+                            <img class="project-image" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Syed_Ahmed_Khan.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Tribute Page Preview">
+                        </div>
+                        <p class="project-title">
+                            <span class="code"></span> Tribute Page <span class="code"></span>
+                        </p>
                     </a>
-                    <a href="{{ url_for('balance_sheet') }}" class="project-tile"> 
-                        <p>project &lt; Balance Sheet /&gt;</p> 
+                    <a href="{{ url_for('balance_sheet') }}" class="project project-tile"> 
+                        <div class="project-img-container">
+                            <img class="project-image" src="{{ url_for('static', filename='images/bs_preview.png') }}" alt="Balance Sheet Preview">
+                        </div>
+                        <p class="project-title">
+                            <span class="code"></span> Balance Sheet <span class="code"></span>
+                        </p>
                     </a>
-                    <a href="{{ url_for('cat_gallery') }}" class="project-tile"> 
-                        <p>project &lt; Cat Gallery /&gt;</p> 
+                    <a href="{{ url_for('cat_gallery') }}" class="project project-tile"> 
+                        <div class="project-img-container">
+                            <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/2.jpg" alt="Cat Gallery Preview">
+                        </div>
+                        <p class="project-title">
+                            <span class="code"></span> Cat Gallery <span class="code"></span>
+                        </p>
                     </a>
-                    <a href="{{ url_for('cat_painting') }}" class="project-tile"> 
-                        <p>project &lt; Cat Painting /&gt;</p> 
+                    <a href="{{ url_for('cat_painting') }}" class="project project-tile"> 
+                        <div class="project-img-container">
+                            <img src="{{ url_for('static', filename='images/cp_preview.png') }}" alt="Cat Painting Preview">
+                        </div>
+                        <p class="project-title">
+                            <span class="code"></span> Cat Painting <span class="code"></span>
+                        </p> 
                     </a>
                 </div>
 
-                <a href="https://github.com" class="show-all-btn">Show all</a>
+                <a href="https://github.com/Happymice45-dev" target="\_blank" class="btn btn-show-all">
+                    Show all <i class="fas fa-chevron-right"></i>
+                </a>
             </section>
 
             <section id="contact-section">
@@ -56,7 +78,7 @@
                     <a href="https://instagram.com">Instagram</a>
                     <a href="https://github.com">GitHub</a>
                     <a href="https://linkedin.com">LinkedIn</a>
-                    <a href="mailto:happymice45.dev@gmail.com">Send a mail</a>
+                    <a href="{{ url_for('contact_page') }}">Ask a Query / Feedback</a>
                 </div>
             </section>
         </main>
