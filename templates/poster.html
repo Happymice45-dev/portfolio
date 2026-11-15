@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Poster</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .poster-wrapper {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .poster-card {
+            background: rgba(42, 42, 62, 0.95);
+            padding: 50px 40px;
+            border-radius: 16px;
+            border: 2px solid #4f46e5;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .poster-card h1 { 
+            color: goldenrod; 
+            font-size: 2.2em; 
+            margin-bottom: 15px; 
+        }
+        
+        .poster-card h3 { 
+           color: goldenrod; 
+            margin-bottom: 25px; 
+        }
+        
+        .poster-section { 
+            margin: 20px 0; 
+            text-align: left; 
+            background: rgba(30, 30, 46, 0.7); 
+            padding: 15px; 
+            border-radius: 8px;
+            font-family: Apple Chancery, cursive;
+            font-weight: none;
+        }
+        
+        .poster-section h4 { 
+            color: goldenrod; 
+            margin-top: 0; 
+        }
+
+        a{
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: goldenrod;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: arial, sans-serif;
+            display: block;
+            text-align: center;
+            background-color: #000;
+            padding: 10px;
+            margin: auto;
+            border-radius: 10px;
+            width: 200px;
+        }
+
+        .AI-WM {
+            position: absolute; 
+            top: 15px;
+            right: 20px;
+            width: auto;
+            display: inline-block; 
+            background-color: #4f46e5;
+            color: white; 
+            padding: 6px 14px; 
+            border-radius: 12px; 
+            font-size: 0.85em; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-wrapper">
+        <div class="poster-card">
+            <a class="AI-WM" href="https://www.example.com" target="_blank">Made with AI</a >
+
+            
+            <h1>H4 Web App Portfolio</h1>
+            <h3>Full-Stack Personal Portfolio & Query Management System</h3>
+
+            <div class="poster-section">
+                <h4>🎯 Core Problem Solved</h4>
+                <p>Provides a centralized platform for interactive web applications connected to a backend database query pipeline.</p>
+            </div>
+
+            <div class="poster-section">
+                <h4>⚙️ Technical Architecture</h4>
+                <p>Built using Python Flask REST routes, Supabase PostgreSQL database integration, and cloud hosting on Vercel.</p>
+            </div>
+
+            <div class="poster-section">
+                <h4>🚀 Key Features</h4>
+                <p>Includes dynamic 3rd-party API quote integration, admin data management, and contact form handling.</p>
+            </div>
+
+            <br>
+            <a href="{{ url_for('home') }}">← To Portfolio</a>
+        </div>
+    </div>
+</body>
+</html>

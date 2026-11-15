@@ -1,3 +1,9 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -40,6 +46,13 @@ body{
     font-family: roboto, sans-serif;
 }
 
+html, body { 
+    width: 100%;
+    background-color: #1e1e2e;
+    overflow-x: hidden; 
+    color: white;
+}
+
 .right-section .about-btn .projects-btn .contact-btn{
     background-color: white;
     color: #1e1e2e;
@@ -54,7 +67,9 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    min-height: 50vh;
+    min-height: 90vh;
+    padding-top: 80px;
+    padding-bottom: 50px;
 }
 
 #welcome-section{
@@ -75,7 +90,7 @@ main{
     font-family: Raleway, sans-serif;
 }
 
-#welcome-section p{
+#welcome-section p#description{
     font-size: 1.2rem;
     color: #D25163;
     margin-bottom: 5px;
@@ -87,8 +102,7 @@ main{
     padding: 4rem 2rem; 
     background-color: rgba(30, 30, 46, 0.85);
     width: 100%;
-    margin: 0 auto; 
-    border-radius: 12px; 
+    margin: 0 auto;
 } 
 
 .projects-section-header { 
@@ -214,9 +228,81 @@ main{
     color: goldenrod;
 }
 
-footer { 
-    padding: 20px; 
+section, #welcome-section, #projects, #contact { 
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-outer { 
+    width: 100%; 
     background-color: #1e1e2e; 
-    font-size: 0.9rem; 
-    color: #aaaaaa;
+}
+
+.section-inner { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 50px 20px;
+}
+
+.site-footer { 
+    width: 100%; 
+    background-color: #11111b;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #4f46e5; 
+    margin-top: 0px; 
+} 
+
+.footer-center-content { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+} 
+
+.footer-links { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    min-height: 40px; 
+}
+
+.poster-link { 
+    color: #a5b4fc; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 0.95em; 
+    transition: color 0.3s ease; 
+} 
+
+.poster-link:hover { 
+    color: goldenrod; 
+}
+
+.secret-admin-link { 
+    color: #ef4444; 
+    text-decoration: none;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 0.85em; 
+    font-weight: bold; 
+    background: rgba(239, 68, 68, 0.15); 
+    padding: 6px 14px; 
+    border-radius: 20px; 
+    border: 1px solid #ef4444;
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(4px); 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+    
+.secret-admin-link:hover { 
+    opacity: 1;
+    transform: translateY(0);
 }

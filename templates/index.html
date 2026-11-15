@@ -23,10 +23,25 @@
         </nav>
 
         <main>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; padding: 12px 20px; border-radius: 8px; max-width: 600px; margin: 20px auto; text-align: center; font-weight: bold;"> {{ message }}
+                        </div> 
+                    {% endfor %} 
+                {% endif %}
+            {% endwith %}
             <section id="welcome-section">
                 <h1>Hey I am Muhammad Uzair</h1>
-                <p><em>I'm learning Web Development</em></p>
+                <p id="description"><em>I'm learning Web Development</em></p>
+
+                <div style="padding: 15px; border-radius: 8px; margin: 20px auto; max-width: 500px; text-align: center;">
+                    <p><em>"{{ quote }}"</em></p>
+                    <small>- {{ author }} </small> 
+                </div>
             </section>
+
+            
 
             <section id="projects" class="projects-section">
                 <h2 class="projects-section-header" >Some of my projects</h2>
@@ -83,8 +98,13 @@
             </section>
         </main>
 
-        <footer>
-            <p>@2026 My Website</p>
+        <footer class="site-footer"> 
+            <div class="footer-center-content"> 
+                <p>© 2026 My Website</p>
+                <a href="{{ url_for('poster') }}" class="poster-link">📜 View Project Poster</a>
+            </div>
+             
+            <a href="{{ url_for('admin_dashboard') }}" class="secret-admin-link">🔐 Admin Dashboard</a>
         </footer>
     </body>
 </html>

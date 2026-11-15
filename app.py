@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import urllib.request
+import json
 
 
 app = Flask(__name__)
@@ -35,9 +37,23 @@ with app.app_context():
         print("Database connection error on startup:", e)
 
 
-@app.route('/') 
-def home(): 
-    return render_template('index.html')
+@app.route('/')
+def home():
+    quote = "Code is like humor. When you have to explain it, it's bad."
+    author = "Cory House"
+    try:
+        req = urllib.request.Request( "https://dummyjson.com/quotes/random",
+        headers={'User-Agent': 'Mozilla/5.0'}
+        )
+        with urllib.request.urlopen(req, timeout=3) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            quote = data.get('quote', quote)
+            author = data.get('author', author)
+            
+    except Exception as e:
+        print("API fetch notice:", e)
+        
+    return render_template('index.html', quote=quote, author=author)
     
 @app.route('/tribute') 
 def tribute(): 
@@ -82,7 +98,36 @@ def contact_page():
         return redirect(url_for('contact_page'))
 
     return render_template('contact.html')
-        
+
+@app.route('/admin', methods=['GET', 'POST']) 
+def admin_dashboard():
+    ADMIN_SECRET_PASSWORD = "rimurusolos"
+    if request.method == 'POST':
+        entered_password = request.form.get('admin_password')
+        if entered_password == ADMIN_SECRET_PASSWORD:
+            all_queries = Query.query.order_by(Query.date_submitted.desc()).all() 
+            return render_template('admin.html', queries=all_queries) 
+        else:
+            flash('Access Denied: Incorrect admin password!', 'error') 
+            return redirect(url_for('home'))
+    
+    return render_template('admin_login.html')
+
+@app.route('/admin/delete/<int:id>' , methods=['POST'])
+def delete_query(id):
+    query_to_delete = Query.query.get_or_404(id)
+    try:
+        db.session.delete(query_to_delete)
+        db.session.commit()
+        flash('Query deleted successfully!', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash('Failed to delete query.', 'error')
+    return redirect(url_for('admin_dashboard'))
+
+@app.route('/poster')
+def poster():
+    return render_template('poster.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

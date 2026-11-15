@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Submissions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .admin-wrapper {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .admin-card {
+            background: rgba(30, 30, 46, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid #4f46e5;
+            max-width: 1100px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .admin-title {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Clean Alert Box for Messages */
+        .flash-box {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid #ef4444;
+            color: #f87171;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        /* Clean Styled Table */
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            color: white;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .admin-table th {
+            background-color: #4f46e5;
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .admin-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(20, 20, 32, 0.6);
+        }
+
+        .delete-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #dc2626;
+        }
+
+        .back-btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-btn {
+            transition: background 0.2s ease;
+            display: block;
+            text-align: center;
+            background-color: #000;
+            padding: 10px;
+            margin: auto;
+            border-radius: 10px;
+            width: 200px;
+            text-decoration: none;
+            color: goldenrod;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: arial, sans-serif;
+        }
+
+        .back-btn:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <div class="admin-card">
+            <h2 class="admin-title">Submitted Contact Messages</h2>
+
+            <!-- Styled Flash Message Display -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-box">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Referrer</th>
+                        <th>Message</th>
+                        <th>Submitted At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for q in queries %}
+                    <tr>
+                        <td>{{ q.id }}</td>
+                        <td>{{ q.name }}</td>
+                        <td>{{ q.email }}</td>
+                        <td>{{ q.referrer or 'N/A' }}</td>
+                        <td>{{ q.message }}</td>
+                        <td>{{ q.date_submitted.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>
+                            <form action="{{ url_for('delete_query', id=q.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-btn" onclick="return confirm('Delete this query entry?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="7" style="text-align: center; color: #a5b4fc;">No query submissions found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="back-btn-container">
+                <a href="{{ url_for('home') }}" class="back-btn">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
